@@ -22,7 +22,7 @@ export default {
       todos: [
         { id: 1, text: "Купить хлеб", completed: false },
         { id: 2, text: "Купить масло", completed: false },
-        { id: 3, text: "Купить сыр", completed: false }
+        { id: 3, text: "Купить сыр", completed: true }
       ]
     }
   }
