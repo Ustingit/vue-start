@@ -1,48 +1,12 @@
 <template>
   <div id="app">
     <h1>TODO application</h1>
-    <AddTodo
-        @add-todo="addTodo"
-     />
     <hr />
-    <TodoList 
-      v-bind:todos="todos"
-      @remove-todo="removeTodo"
-    />
+    <router-view /> <!-- сюда вью рендерит компоненты от роутинга -->
   </div>
 </template>
 
-<script>
 
-import TodoList from '@/components/TodoList';
-import AddTodo from '@/components/AddTodo';
-
-export default {
-  name: 'App',
-  components: {
-    TodoList, AddTodo
-  },
-  data() {
-    return {
-      todos: []
-    }
-  },
-  mounted() {
-    fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
-      .then(response => response.json())
-      .then(json => this.todos = json);
-  },
-  methods: {
-    removeTodo(id) {
-      this.todos = this.todos.filter(x => x.id !== id);
-    },
-    addTodo(newTodo) {
-      console.log(newTodo);
-      this.todos.push(newTodo);
-    }
-  }
-}
-</script>
 
 <style>
 #app {
